@@ -8,11 +8,12 @@ class BoostConfigConan(ConanFile):
     source_url = "https://github.com/boostorg/config"
     description = "Please visit http://www.boost.org/doc/libs/1_64_0/libs/libraries.htm"
     license = "www.boost.org/users/license.html"
-    lib_short_name = "config"
+    lib_short_names = ["config"]
 
     def source(self):
-        self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
-                 .format(self.version, self.source_url))
+        for lib_short_name in self.lib_short_names:
+            self.run("git clone --depth=50 --branch=boost-{0} https://github.com/boostorg/{1}.git"
+                     .format(self.version, lib_short_name)) 
 
     def build(self):
         stage_lib_dir = os.path.join(self.build_folder,"stage","lib")
@@ -23,17 +24,19 @@ project /boost/config ;
 """)
 
     def package(self):
-        include_dir = os.path.join(self.build_folder, self.lib_short_name, "include")
-        self.copy(pattern="*", dst="include", src=include_dir)
+        for lib_short_name in self.lib_short_names:
+            include_dir = os.path.join(lib_short_name, "include")
+            self.copy(pattern="*", dst="include", src=include_dir)
+            checks_dir = os.path.join(lib_short_name, "checks")
+            self.copy(pattern="*.jam", dst=os.path.join("lib","checks"), src=checks_dir)
+            self.copy(pattern="*.cpp", dst=os.path.join("lib","checks"), src=checks_dir)
+            self.copy(pattern="Jamfile*", dst=os.path.join("lib","checks"), src=checks_dir)
+            
         self.copy(pattern="*", dst="lib", src="stage/lib")
-
-        checks_dir = os.path.join(self.build_folder, self.lib_short_name, "checks")
-        self.copy(pattern="*.jam", dst=os.path.join("lib","checks"), src=checks_dir)
-        self.copy(pattern="*.cpp", dst=os.path.join("lib","checks"), src=checks_dir)
-        self.copy(pattern="Jamfile*", dst=os.path.join("lib","checks"), src=checks_dir)
 
     def package_id(self):
         self.info.header_only()
 
     def package_info(self):
-        self.user_info.lib_short_name = self.lib_short_name
+        self.user_info.lib_short_names = self.lib_short_names
+        self.cpp_info.libs = self.collect_libs()
