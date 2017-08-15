@@ -12,7 +12,7 @@ class BoostConfigConan(ConanFile):
 
     def source(self):
         self.run("git clone --depth=50 --branch=boost-{0} {1}.git"
-                 .format(self.version, self.url))
+                 .format(self.version, self.source_url))
 
     def build(self):
         stage_lib_dir = os.path.join(self.build_folder,"stage","lib")
