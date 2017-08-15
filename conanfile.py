@@ -36,4 +36,4 @@ project /boost/config ;
         self.info.header_only()
 
     def package_info(self):
-        self.user_info.name = self.lib_short_name
+        self.user_info.lib_short_name = self.lib_short_name
