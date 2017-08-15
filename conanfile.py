@@ -4,7 +4,8 @@ from conans.util.files import mkdir
 class BoostConfigConan(ConanFile):
     name = "Boost.Config"
     version = "1.64.0"
-    url = "https://github.com/boostorg/config"
+    url = "https://github.com/bincrafters/conan-boost-config"
+    source_url = "https://github.com/boostorg/config"
     description = "Please visit http://www.boost.org/doc/libs/1_64_0/libs/libraries.htm"
     license = "www.boost.org/users/license.html"
     lib_short_name = "config"
