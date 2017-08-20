@@ -1,6 +1,6 @@
 env:
    global:
-     - CONAN_REFERENCE: "Boost.Config/1.64.0"
+     - CONAN_REFERENCE: "Azure-IOT-SDK-C/1.1.21"
      - CONAN_SUBJECT: "bincrafters"
      - CONAN_CHANNEL: "ci"
      - CONAN_REPO: "public-conan"
