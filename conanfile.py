@@ -42,4 +42,4 @@ project /boost/config ;
 
     def package_info(self):
         self.user_info.lib_short_names = (",").join(self.lib_short_names)
-        self.cpp_info.libs = self.collect_libs()
+        self.cpp_info.libs = tools.collect_libs(self)
