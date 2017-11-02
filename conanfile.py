@@ -1,4 +1,5 @@
-from conans import ConanFile, tools, os
+from conans import ConanFile, tools
+import os
 from conans.util.files import mkdir
 
 class BoostConfigConan(ConanFile):
