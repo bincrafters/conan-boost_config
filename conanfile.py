@@ -7,7 +7,7 @@ from conans import ConanFile, tools
 class BoostConfigConan(ConanFile):
     name = "boost_config"
     version = "1.66.0"
-    url = "https://github.com/bincrafters/conan-boost-config"
+    url = "https://github.com/bincrafters/conan-boost_config"
     
     lib_short_names = ["config"]
     is_header_only = True
