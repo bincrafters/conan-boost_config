@@ -14,7 +14,7 @@ def get_module_location():
 
     
 def get_module_name():
-    return os.getenv("CONAN_MODULE_NAME", "build_template_header_only")
+    return os.getenv("CONAN_MODULE_NAME", "build_template_boost_header_only")
 
     
 def get_module_filename():
