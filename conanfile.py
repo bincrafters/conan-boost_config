@@ -8,7 +8,8 @@ class BoostConfigConan(ConanFile):
     name = "boost_config"
     version = "1.66.0"
     url = "https://github.com/bincrafters/conan-boost_config"
-    
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["config"]
     is_header_only = True
 
