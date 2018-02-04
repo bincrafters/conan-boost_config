@@ -30,7 +30,7 @@ class BoostConfigConan(ConanFile):
     
     # BEGIN
 
-    description = "Please visit http://www.boost.org/doc/libs/1_66_0"
+    description = "Please visit http://www.boost.org/doc/libs/1_65_1"
     license = "BSL-1.0"
     short_paths = True
     build_requires = "boost_generator/1.65.1@bincrafters/testing"
