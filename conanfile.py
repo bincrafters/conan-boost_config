@@ -6,7 +6,7 @@ from conans import ConanFile, tools
 
 class BoostConfigConan(ConanFile):
     name = "boost_config"
-    version = "1.66.0"
+    version = "1.65.1"
     url = "https://github.com/bincrafters/conan-boost_config"
     author = "Bincrafters <bincrafters@gmail.com>"
     exports = ["LICENSE.md"]
@@ -25,7 +25,7 @@ class BoostConfigConan(ConanFile):
             self.copy(pattern="Jamfile*", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
 
     requires = (
-        "boost_package_tools/1.66.0@bincrafters/testing"
+        "boost_package_tools/1.65.1@bincrafters/testing"
     )
     
     # BEGIN
@@ -33,7 +33,7 @@ class BoostConfigConan(ConanFile):
     description = "Please visit http://www.boost.org/doc/libs/1_66_0"
     license = "BSL-1.0"
     short_paths = True
-    build_requires = "boost_generator/1.66.0@bincrafters/testing"
+    build_requires = "boost_generator/1.65.1@bincrafters/testing"
 
     def package_id(self):
         getattr(self, "package_id_additional", lambda:None)()
