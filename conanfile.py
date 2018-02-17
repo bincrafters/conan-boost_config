@@ -25,7 +25,7 @@ class BoostConfigConan(ConanFile):
             self.copy(pattern="Jamfile*", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
 
     requires = (
-        "boost_package_tools/1.65.1@bincrafters/testing"
+        "boost_package_tools/1.65.1@bincrafters/stable"
     )
     
     # BEGIN
@@ -33,7 +33,7 @@ class BoostConfigConan(ConanFile):
     description = "Please visit http://www.boost.org/doc/libs/1_65_1"
     license = "BSL-1.0"
     short_paths = True
-    build_requires = "boost_generator/1.65.1@bincrafters/testing"
+    build_requires = "boost_generator/1.65.1@bincrafters/stable"
 
     def package_id(self):
         getattr(self, "package_id_additional", lambda:None)()
