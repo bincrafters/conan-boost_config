@@ -5,7 +5,7 @@ from conans import python_requires
 import os
 
 
-base = python_requires("boost_base/1.68.0@bincrafters/testing")
+base = python_requires("boost_base/1.69.0@bincrafters/testing")
 
 class BoostConfigConan(base.BoostBaseConan):
     name = "boost_config"
