@@ -8,12 +8,12 @@ linux: &linux
 matrix:
    include:
       - <<: *linux
-        env: CONAN_CLANG_VERSIONS=4.0 CONAN_DOCKER_IMAGE=conanio/clang40
+        env: CONAN_CLANG_VERSIONS=5.0 CONAN_DOCKER_IMAGE=conanio/clang50
 
 install:
-  - chmod +x .travis/install.sh
-  - ./.travis/install.sh
+  - chmod +x .ci/install.sh
+  - ./.ci/install.sh
 
 script:
-  - chmod +x .travis/run.sh
-  - ./.travis/run.sh
+  - chmod +x .ci/run.sh
+  - ./.ci/run.sh

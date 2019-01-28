@@ -9,6 +9,7 @@ base = python_requires("boost_base/1.68.0@bincrafters/stable")
 
 class BoostConfigConan(base.BoostBaseConan):
     name = "boost_config"
+    version = "1.68.0"
     url = "https://github.com/bincrafters/conan-boost_config"
     lib_short_names = ["config"]
     header_only_libs = ["config"]
@@ -19,3 +20,8 @@ class BoostConfigConan(base.BoostBaseConan):
             self.copy(pattern="*.jam", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
             self.copy(pattern="*.cpp", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
             self.copy(pattern="Jamfile*", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
+
+    def package_info_additional(self):
+        # boost_generator finds .jam files for this library using libdirs variable
+        for lib_short_name in self.lib_short_names:
+            self.cpp_info.libdirs.append(os.path.join(lib_short_name, "lib"))
