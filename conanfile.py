@@ -20,3 +20,8 @@ class BoostConfigConan(base.BoostBaseConan):
             self.copy(pattern="*.jam", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
             self.copy(pattern="*.cpp", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
             self.copy(pattern="Jamfile*", dst=os.path.join(lib_short_name, "lib","checks"), src=checks_dir)
+
+    def package_info_additional(self):
+        # boost_generator finds .jam files for this library using libdirs variable
+        for lib_short_name in self.lib_short_names:
+            self.cpp_info.libdirs.append(os.path.join(lib_short_name, "lib"))
